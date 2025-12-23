@@ -18,7 +18,7 @@ Foglaláshoz vagy további kérdés esetén kérjük, írj nekünk:
 
 ## English
 
-# Holdudvar Guesthouse – Booking Calendar 2025
+# Holdudvar Guesthouse – Booking Calendar
 
 This page displays the 2026 booking calendar of Holdudvar Guesthouse.  
 Its purpose is to help guests check available and reserved dates in real time.
