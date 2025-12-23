@@ -1,6 +1,6 @@
-# Holdudvar Vendégház – Foglalási Naptár 2025
+# Holdudvar Vendégház – Foglalási Naptár
 
-Ez az oldal a Holdudvar Vendégház 2025-ös foglaltsági naptárát tartalmazza.  
+Ez az oldal a Holdudvar Vendégház 2026-os foglaltsági naptárát tartalmazza.  
 Célja, hogy a vendégek valós időben áttekinthető formában láthassák az elérhető és már lefoglalt időpontokat.
 
 ℹ️ A naptár **tájékoztató jellegű**. A foglalás véglegesítése minden esetben **előzetes egyeztetés alapján történik**.
@@ -20,7 +20,7 @@ Foglaláshoz vagy további kérdés esetén kérjük, írj nekünk:
 
 # Holdudvar Guesthouse – Booking Calendar 2025
 
-This page displays the 2025 booking calendar of Holdudvar Guesthouse.  
+This page displays the 2026 booking calendar of Holdudvar Guesthouse.  
 Its purpose is to help guests check available and reserved dates in real time.
 
 ℹ️ The calendar is **for informational purposes only**.  
