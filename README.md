@@ -6,7 +6,7 @@ Célja, hogy a vendégek valós időben áttekinthető formában láthassák az 
 ℹ️ A naptár **tájékoztató jellegű**. A foglalás véglegesítése minden esetben **előzetes egyeztetés alapján történik**.
 
 🔗 **Naptár elérhetősége:**  
-[https://smtgrv.github.io/holdudvar_vendeghaz_naptar_2025](https://smtgrv.github.io/holdudvar_vendeghaz_naptar_2025)
+https://smtgrv.github.io/holdudvar_vendeghaz_naptar_2026
 
 ## Kapcsolat
 
