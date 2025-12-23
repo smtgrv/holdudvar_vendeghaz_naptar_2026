@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holdudvar Vendégház Naptár</title>
+    <title>Holdudvar Vendégház Naptár 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -29,12 +29,22 @@
             position: relative;
         }
 
-        h2 {
+        .header {
             text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .main-title {
             color: #1A4030;
             font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+            font-size: 1.8rem;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         select {
@@ -190,8 +200,12 @@
                 max-width: 100%;
             }
 
-            h2 {
-                font-size: 1.3rem;
+            .main-title {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
             }
 
             select {
@@ -236,7 +250,11 @@
 
 <body>
     <div class="container">
-        <h2>Holdudvar Vendégház Naptár</h2>
+        <div class="header">
+            <div class="main-title">Holdudvar Vendégház</div>
+            <div class="subtitle">2026 Naptár</div>
+        </div>
+
         <select id="month" onchange="generateCalendar()">
             <!-- Months will be loaded dynamically -->
         </select>
@@ -275,122 +293,48 @@
         </div>
     </div>
     <script>
+        // 2026-os foglalások (ezeket a dátumokat később frissíteni kell)
         const reservations = {
-            "04-18": [true, true, true],
-            "04-19": [true, true, true],
-            "04-25": [false, true, false],
-            "04-26": [false, true, false],
-            "05-01": [true, true, true],
-            "05-02": [true, true, true],
-            "05-09": [true, false, true],
-            "05-10": [true, false, true],
-            "05-16": [false, false, true],
-            "05-17": [false, false, true],
-            "06-06": [false, false, true],
-            "06-07": [true, true, true],
-            "06-08": [true, true, true],
-"06-10": [false, true, false],
-"06-11": [false, true, false],
-"06-13": [false, true, false],
-"06-14": [false, true, false],
-"06-15": [false, true, false],
-"06-18": [false, true, false],
-"06-19": [false, true, false],
-            "06-21": [false, true, false],
-            "06-22": [false, true, false],
-            "06-23": [false, true, false],
-            "06-27": [true, true, true],
-            "06-28": [true, true, true],
-"07-02": [false, true, false],
-"07-03": [false, true, false],
-            "07-04": [false, true, true],
-            "07-05": [true, true, true],
-"07-06": [true, false, false],
-            "07-07": [true, true, true],
-            "07-08": [true, true, true],
-            "07-09": [false, true, true],
-"07-10": [true, false, false],
-            "07-11": [true, true, true],
-            "07-12": [true, true, true],
-"07-13": [true, true, false],
-"07-14": [true, true, false],
-"07-15": [true, false, false],
-"07-18": [true, true, true],
-"07-19": [true, true, true],
-"07-21": [true, false, true],
-            "07-22": [true, true, true],
-            "07-23": [true, true, true],
-            "07-24": [true, true, true],
-            "07-25": [true, true, true],
-            "07-26": [true, true, true],
-"07-27": [true, true, false],
-            "07-28": [true, true, false],
-            "07-29": [true, true, false],
-            "07-30": [true, true, false],
-            "07-31": [true, false, false],
-            "08-01": [true, true, true],
-            "08-02": [true, true, true],
-"08-04": [true, false, false],
-"08-05": [true, false, false],
-"08-06": [true, false, false],
-            "08-07": [true, true, true],
-            "08-08": [true, true, true],
-            "08-09": [true, true, true],
-            "08-10": [true, true, true],
-            "08-11": [true, true, true],
-            "08-12": [true, true, true],
-            "08-13": [false, true, false],
-            "08-14": [false, true, false],
-            "08-15": [true, true, false],
-            "08-16": [true, true, false],
-            "08-19": [true, true, true],
-            "08-20": [true, false, true],
-"08-21": [true, false, true],
-"08-22": [true, true, true],
-            "08-23": [true, true, true],
-            "08-24": [true, false, false],
-            "08-25": [true, false, false],
-            "08-26": [true, false, false],
-            "08-27": [true, false, false],
-            "08-28": [true, false, false],
-            "08-29": [true, false, false],
-            "08-30": [true, false, false],
-            "08-31": [true, false, false],
-            "09-01": [true, false, false],
-            "09-02": [true, false, false],
-            "09-03": [true, false, false],
-            "09-04": [true, false, false],
-            "09-05": [true, false, false],
-            "09-06": [true, false, false],
-            "09-11": [true, true, true],
-            "09-12": [true, true, true],
-            "09-13": [true, true, true],
-            "09-15": [true, false, false],
-            "09-16": [true, false, false],
-            "09-17": [true, false, false],
-            "09-18": [true, false, false],
-            "09-19": [true, false, false],
-            "09-20": [true, false, false],
-"10-03": [true, false, false],
-"10-04": [true, true, true],
-"10-18": [true, false, false],
-"10-19": [true, false, false],
-"10-20": [true, false, false],
-"10-21": [true, false, false],
-"10-24": [true, true, true],
-"10-25": [true, true, true],
+            // Formátum: "HH-NN": [Telihold, Félhold, Holdfény] - true = foglalt, false = szabad
+            "01-01": [true, true, true],
+
+
+            // További dátumokat ide lehet felvenni...
         };
+
         const monthNames = ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"];
+
+        // Az aktuális év
+        const currentYear = 2026;
 
         function populateMonthDropdown() {
             const monthDropdown = document.getElementById("month");
             const currentDate = new Date();
-            const currentMonth = currentDate.getMonth() + 1;
-            for (let i = currentMonth; i <= 12; i++) {
-                const option = document.createElement("option");
-                option.value = i;
-                option.textContent = monthNames[i - 1];
-                monthDropdown.appendChild(option);
+
+            // Ha az aktuális év 2026, akkor a hónapok a jelenlegi hónaptól kezdődjenek
+            if (currentDate.getFullYear() === currentYear) {
+                const currentMonth = currentDate.getMonth() + 1;
+                for (let i = currentMonth; i <= 12; i++) {
+                    const option = document.createElement("option");
+                    option.value = i;
+                    option.textContent = monthNames[i - 1];
+                    monthDropdown.appendChild(option);
+                }
+            } else {
+                // Ha nem 2026 van, minden hónapot megjelenítünk
+                for (let i = 1; i <= 12; i++) {
+                    const option = document.createElement("option");
+                    option.value = i;
+                    option.textContent = monthNames[i - 1];
+                    monthDropdown.appendChild(option);
+                }
+            }
+
+            // Ha nincs kiválasztva hónap, automatikusan az aktuális hónap legyen kiválasztva
+            if (currentDate.getFullYear() === currentYear) {
+                monthDropdown.value = currentDate.getMonth() + 1;
+            } else {
+                monthDropdown.value = 1; // Január legyen alapértelmezett
             }
         }
 
@@ -398,19 +342,25 @@
             let month = parseInt(document.getElementById("month").value);
             let tableBody = document.getElementById("calendar-body");
             tableBody.innerHTML = "";
-            let daysInMonth = new Date(2025, month, 0).getDate();
+
+            // 2026-ot használunk az évnek
+            let daysInMonth = new Date(currentYear, month, 0).getDate();
+
             for (let day = 1; day <= daysInMonth; day++) {
                 let row = document.createElement("tr");
                 let dateCell = document.createElement("td");
                 let formattedDate = `${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
-                let currentDate = new Date(2025, month - 1, day);
+                let currentDate = new Date(currentYear, month - 1, day);
                 let dayOfWeek = currentDate.getDay();
+
                 dateCell.textContent = `${day.toString().padStart(2, '0')}`;
                 dateCell.style.textAlign = "center";
                 row.appendChild(dateCell);
+
                 if (dayOfWeek === 0 || dayOfWeek === 6) {
                     dateCell.classList.add("weekend");
                 }
+
                 for (let i = 0; i < 3; i++) {
                     let cell = document.createElement("td");
                     if (reservations[formattedDate] && reservations[formattedDate][i]) {
@@ -431,13 +381,13 @@
             document.getElementById("overlay").style.display = "none";
             document.getElementById("contactInfo").style.display = "none";
         }
-        populateMonthDropdown();
-        generateCalendar();
+
+        // Oldal betöltésekor indítjuk a függvényeket
+        document.addEventListener('DOMContentLoaded', function () {
+            populateMonthDropdown();
+            generateCalendar();
+        });
     </script>
 </body>
 
 </html>
-
-
-
-
