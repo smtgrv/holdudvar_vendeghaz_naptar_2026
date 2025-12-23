@@ -27,7 +27,7 @@ Its purpose is to help guests check available and reserved dates in real time.
 All bookings must be **confirmed through direct communication**.
 
 🔗 **Calendar link:**  
-[https://smtgrv.github.io/holdudvar_vendeghaz_naptar_2025](https://smtgrv.github.io/holdudvar_vendeghaz_naptar_2025)
+https://smtgrv.github.io/holdudvar_vendeghaz_naptar_2026
 
 ## Contact
 
