@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Holdudvar Vendégház Naptár 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -55,10 +56,12 @@
         }
 
         h2 {
+            font-family: 'Playfair Display', serif;
             color: #1A4030;
             font-weight: 700;
-            font-size: 2rem;
+            font-size: 2.4rem;
             margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
         }
 
         .subtitle {
@@ -97,37 +100,6 @@
         select:focus {
             border-color: #3E7368;
             box-shadow: 0 0 0 3px rgba(27, 77, 62, 0.1);
-        }
-
-        .legend {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: #4a5568;
-        }
-
-        .legend-box {
-            width: 20px;
-            height: 20px;
-            border-radius: 6px;
-        }
-
-        .legend-box.booked {
-            background: #FF6B6B;
-        }
-
-        .legend-box.available {
-            background: white;
-            border: 2px solid #e2e8f0;
         }
 
         table {
@@ -179,6 +151,8 @@
             font-weight: 600;
             color: #2d3748;
             background: #f7fafc;
+            text-align: left;
+            padding-left: 20px;
         }
 
         td.weekend:first-child {
@@ -201,6 +175,14 @@
             transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             z-index: 10;
+        }
+
+        .day-name {
+            font-size: 0.8rem;
+            color: #718096;
+            font-weight: normal;
+            margin-left: 8px;
+            opacity: 0.8;
         }
 
         .footer {
@@ -274,6 +256,7 @@
 
         .contact-info h3 {
             text-align: center;
+            font-family: 'Playfair Display', serif;
             color: #1A4030;
             font-weight: 700;
             margin-bottom: 2rem;
@@ -341,7 +324,7 @@
             }
 
             h2 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
 
             select {
@@ -355,8 +338,13 @@
                 font-size: 0.85rem;
             }
 
-            .legend {
-                gap: 1rem;
+            td:first-child {
+                padding-left: 12px;
+            }
+
+            .day-name {
+                margin-left: 4px;
+                font-size: 0.75rem;
             }
 
             .contact-info {
@@ -383,17 +371,6 @@
             <select id="month" onchange="generateCalendar()">
                 <!-- Months will be loaded dynamically -->
             </select>
-        </div>
-
-        <div class="legend">
-            <div class="legend-item">
-                <div class="legend-box booked"></div>
-                <span>Foglalt</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-box available"></div>
-                <span>Szabad</span>
-            </div>
         </div>
 
         <table>
@@ -441,6 +418,7 @@
         };
 
         const monthNames = ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"];
+        const dayNames = ["V", "H", "K", "Sze", "Cs", "P", "Szo"];
         const currentYear = 2026;
 
         function populateMonthDropdown() {
@@ -480,8 +458,10 @@
                 let formattedDate = `${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
                 let currentDate = new Date(currentYear, month - 1, day);
                 let dayOfWeek = currentDate.getDay();
-
-                dateCell.textContent = `${day.toString().padStart(2, '0')}`;
+                
+                // Hozzáadjuk a nap nevének kezdőbetűjét
+                let dayName = dayNames[dayOfWeek];
+                dateCell.innerHTML = `${day.toString().padStart(2, '0')} <span class="day-name">${dayName}</span>`;
                 row.appendChild(dateCell);
 
                 if (dayOfWeek === 0 || dayOfWeek === 6) {
