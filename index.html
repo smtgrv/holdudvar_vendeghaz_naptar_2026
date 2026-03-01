@@ -19,53 +19,48 @@
             background: linear-gradient(135deg, #1B4D3E 0%, #3E7368 100%);
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
+            align-items: flex-start;
+            padding: 12px;
             position: relative;
             overflow-x: hidden;
         }
 
         .container {
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 24px;
+            padding: 1.2rem 1rem;
+            border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             position: relative;
             animation: fadeIn 0.6s ease-out;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         h2 {
             font-family: 'Inter', sans-serif;
             color: #1A4030;
             font-weight: 700;
-            font-size: 2.4rem;
-            margin-bottom: 0.5rem;
+            font-size: clamp(1.4rem, 5vw, 2.2rem);
+            white-space: nowrap;
             letter-spacing: 0.5px;
+            line-height: 1.1;
         }
 
         .subtitle {
             color: #718096;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            margin-top: 3px;
         }
 
         .month-selector {
@@ -73,12 +68,12 @@
             justify-content: center;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         select {
-            padding: 12px 20px;
-            font-size: 16px;
+            padding: 10px 16px;
+            font-size: 15px;
             border: 2px solid #e2e8f0;
             border-radius: 12px;
             background: white;
@@ -87,12 +82,11 @@
             font-weight: 500;
             transition: all 0.3s ease;
             outline: none;
-            min-width: 200px;
+            min-width: 180px;
         }
 
         select:hover {
             border-color: #1B4D3E;
-            transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(27, 77, 62, 0.2);
         }
 
@@ -105,9 +99,8 @@
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
-            margin-top: 15px;
             background: white;
-            border-radius: 16px;
+            border-radius: 14px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
@@ -115,20 +108,18 @@
         th {
             background: #1B4D3E;
             color: white;
-            padding: 16px 12px;
+            padding: 12px 8px;
             text-align: center;
             font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
+            font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+            letter-spacing: 0.3px;
             border-right: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        th:last-child {
-            border-right: none;
-        }
+        th:last-child { border-right: none; }
 
         td {
-            padding: 12px;
+            padding: 9px 6px;
             text-align: center;
             border-bottom: 1px solid #e2e8f0;
             border-right: 1px solid #e2e8f0;
@@ -136,22 +127,19 @@
             color: #4a5568;
             transition: all 0.3s ease;
             position: relative;
+            font-size: clamp(0.8rem, 2.5vw, 0.95rem);
         }
 
-        td:last-child {
-            border-right: none;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
+        td:last-child { border-right: none; }
+        tr:last-child td { border-bottom: none; }
 
         td:first-child {
             font-weight: 600;
             color: #2d3748;
             background: #f7fafc;
             text-align: left;
-            padding-left: 20px;
+            padding-left: 12px;
+            white-space: nowrap;
         }
 
         td.weekend:first-child {
@@ -177,21 +165,21 @@
         }
 
         .day-name {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #718096;
             font-weight: normal;
-            margin-left: 8px;
+            margin-left: 5px;
             opacity: 0.8;
         }
 
         .footer {
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 1.2rem;
         }
 
         .contact-btn {
-            padding: 14px 32px;
-            font-size: 16px;
+            padding: 12px 28px;
+            font-size: 15px;
             font-weight: 600;
             background: #1B4D3E;
             color: white;
@@ -208,17 +196,11 @@
             background: #3E7368;
         }
 
-        .contact-btn:active {
-            transform: translateY(-1px);
-        }
-
         .overlay {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(8px);
             z-index: 1000;
@@ -228,43 +210,34 @@
         .contact-info {
             display: none;
             position: fixed;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             background: white;
-            padding: 3rem;
+            padding: 2.5rem;
             border-radius: 24px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             z-index: 1001;
             width: 90%;
-            max-width: 450px;
+            max-width: 420px;
             animation: slideUp 0.4s ease;
         }
 
         @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -40%);
-            }
-
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
+            from { opacity: 0; transform: translate(-50%, -40%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
         }
 
         .contact-info h3 {
             text-align: center;
-            font-family: 'Inter', sans-serif;
             color: #1A4030;
             font-weight: 700;
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
         }
 
         .contact-item {
-            margin-bottom: 1.5rem;
-            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            padding: 1.2rem;
             background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
             border-radius: 12px;
             transition: all 0.3s ease;
@@ -276,33 +249,31 @@
         }
 
         .contact-item i {
-            font-size: 24px;
+            font-size: 22px;
             color: #1B4D3E;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .contact-text {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #2d3748;
-            margin: 10px 0;
+            margin: 8px 0;
             font-weight: 600;
         }
 
         .contact-item p {
             color: #718096;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.6;
         }
 
         .close-btn {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 28px;
+            top: 16px; right: 16px;
+            font-size: 26px;
             cursor: pointer;
             color: #718096;
-            width: 40px;
-            height: 40px;
+            width: 38px; height: 38px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -316,45 +287,6 @@
             color: white;
             transform: rotate(90deg);
         }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1.5rem;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-
-            select {
-                min-width: 160px;
-                font-size: 14px;
-            }
-
-            th,
-            td {
-                padding: 10px 6px;
-                font-size: 0.85rem;
-            }
-
-            td:first-child {
-                padding-left: 12px;
-            }
-
-            .day-name {
-                margin-left: 4px;
-                font-size: 0.75rem;
-            }
-
-            .contact-info {
-                padding: 2rem;
-            }
-
-            .contact-btn {
-                padding: 12px 24px;
-                font-size: 14px;
-            }
-        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -367,9 +299,7 @@
         </div>
 
         <div class="month-selector">
-            <select id="month" onchange="generateCalendar()">
-                <!-- Months will be loaded dynamically -->
-            </select>
+            <select id="month" onchange="generateCalendar()"></select>
         </div>
 
         <table>
@@ -385,9 +315,7 @@
         </table>
 
         <div class="footer">
-            <button class="contact-btn" onclick="openContactInfo()">
-                Kapcsolatfelvétel
-            </button>
+            <button class="contact-btn" onclick="openContactInfo()">Kapcsolatfelvétel</button>
         </div>
     </div>
 
@@ -414,45 +342,44 @@
         const reservations = {
             "04-18": [false, false, false],
             "04-19": [false, false, false],
-"04-29": [false, true, false],           
-"04-30": [false, true, false],
-"05-01": [false, true, false],           
-"05-02": [true, true, false],
-"05-03": [true, false, false],
-"05-04": [true, false, false],
-"05-05": [true, false, false],
-"05-06": [true, false, false],
-"05-07": [true, false, false],
-"05-08": [true, false, false],
-"05-09": [true, false, false],
-"05-10": [true, false, false],
-"05-11": [true, false, false],
-"05-12": [true, false, false],
-"05-13": [true, false, false],
-"05-14": [true, false, false],
-"05-22": [false, false, true],
-"05-23": [false, false, true],
-"05-24": [false, false, true],
-"07-04": [false, true, true],
-"07-05": [false, true, true],
-"07-06": [false, true, true],
-"07-07": [false, true, true],
-"08-05": [true, true, false],
-"08-06": [true, true, false],
-"08-07": [true, true, false],
-"08-08": [true, true, true],
-"08-09": [false, false, true],
-"08-10": [true, false, false],
+            "04-29": [false, true, false],           
+            "04-30": [false, true, false],
+            "05-01": [false, true, false],           
+            "05-02": [true, true, false],
+            "05-03": [true, false, false],
+            "05-04": [true, false, false],
+            "05-05": [true, false, false],
+            "05-06": [true, false, false],
+            "05-07": [true, false, false],
+            "05-08": [true, false, false],
+            "05-09": [true, false, false],
+            "05-10": [true, false, false],
+            "05-11": [true, false, false],
+            "05-12": [true, false, false],
+            "05-13": [true, false, false],
+            "05-14": [true, false, false],
+            "05-22": [false, false, true],
+            "05-23": [false, false, true],
+            "05-24": [false, false, true],
+            "07-04": [false, true, true],
+            "07-05": [false, true, true],
+            "07-06": [false, true, true],
+            "07-07": [false, true, true],
+            "08-05": [true, true, false],
+            "08-06": [true, true, false],
+            "08-07": [true, true, false],
+            "08-08": [true, true, true],
+            "08-09": [false, false, true],
+            "08-10": [true, false, false],
             "08-11": [true, false, false],
             "08-12": [true, false, false],
             "08-13": [true, false, false],
             "08-14": [true, false, false],
             "08-15": [true, false, false],
-            
         };
 
-        const monthNames = ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"];
-        const dayNames = ["V", "H", "K", "Sze", "Cs", "P", "Szo"];
+        const monthNames = ["Január","Február","Március","Április","Május","Június","Július","Augusztus","Szeptember","Október","November","December"];
+        const dayNames = ["V","H","K","Sze","Cs","P","Szo"];
         const currentYear = 2026;
 
         function populateMonthDropdown() {
@@ -489,13 +416,12 @@
             for (let day = 1; day <= daysInMonth; day++) {
                 let row = document.createElement("tr");
                 let dateCell = document.createElement("td");
-                let formattedDate = `${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+                let formattedDate = `${month.toString().padStart(2,'0')}-${day.toString().padStart(2,'0')}`;
                 let currentDate = new Date(currentYear, month - 1, day);
                 let dayOfWeek = currentDate.getDay();
                 
-                // Hozzáadjuk a nap nevének kezdőbetűjét
                 let dayName = dayNames[dayOfWeek];
-                dateCell.innerHTML = `${day.toString().padStart(2, '0')} <span class="day-name">${dayName}</span>`;
+                dateCell.innerHTML = `${day.toString().padStart(2,'0')} <span class="day-name">${dayName}</span>`;
                 row.appendChild(dateCell);
 
                 if (dayOfWeek === 0 || dayOfWeek === 6) {
@@ -529,15 +455,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
