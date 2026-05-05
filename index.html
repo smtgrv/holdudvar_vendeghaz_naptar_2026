@@ -56,7 +56,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* HEADER – FEHÉR */
     .header {
       background: #ffffff;
       padding: 2rem 1.5rem 1.6rem;
@@ -89,7 +88,6 @@
 
     .body-wrap { padding: 1.2rem 1rem 1.4rem; }
 
-    /* MONTH SELECT */
     .month-selector {
       display: flex;
       justify-content: center;
@@ -116,7 +114,6 @@
       outline: none;
     }
 
-    /* TABLE */
     table {
       width: 100%;
       border-radius: 16px;
@@ -190,7 +187,6 @@
       background: var(--hover);
     }
 
-    /* FOOTER */
     .footer {
       text-align: center;
       margin-top: 1.4rem;
@@ -206,13 +202,13 @@
       border-radius: 12px;
       cursor: pointer;
       box-shadow: 0 6px 18px rgba(15,51,36,0.25);
+      transition: transform 0.2s;
     }
 
     .contact-btn:hover {
       transform: translateY(-2px);
     }
 
-    /* MODAL */
     .overlay {
       display: none;
       position: fixed;
@@ -333,11 +329,59 @@
 </div>
 
 <script>
+  // Frissített foglalások a megadott lista alapján
   const reservations = {
-    "05-15":[true,false,false],
-    "05-22":[true,false,true],
-    "05-23":[true,false,true],
-    "05-24":[true,false,true]
+    // Április
+    "04-29": [true, false, false],
+    "04-30": [true, true, false],
+    // Május
+    "05-01": [true, true, true],
+    "05-02": [true, true, true],
+    "05-03": [true, true, false],
+    "05-04": [true, true, false],
+    "05-05": [true, true, false],
+    "05-06": [true, false, false],
+    "05-07": [true, false, false],
+    "05-08": [true, true, false],
+    "05-09": [true, true, false],
+    "05-10": [true, false, false],
+    "05-11": [true, false, false],
+    "05-12": [true, false, false],
+    "05-13": [true, false, false],
+    "05-14": [true, false, false],
+    "05-15": [true, false, false],
+    "05-22": [true, true, false],
+    "05-23": [true, true, false],
+    "05-24": [true, true, false],
+    // Június
+    "06-25": [true, true, true],
+    "06-26": [true, true, true],
+    "06-27": [true, true, true],
+    // Július
+    "07-03": [true, false, false],
+    "07-04": [true, true, true],
+    "07-05": [true, true, false],
+    "07-06": [true, true, true],
+    "07-07": [true, true, true],
+    "07-08": [true, false, false],
+    "07-09": [true, false, false],
+    "07-10": [true, false, false],
+    "07-11": [true, false, false],
+    "07-13": [true, false, false],
+    "07-14": [true, false, false],
+    "07-15": [true, false, false],
+    // Augusztus
+    "08-05": [true, true, false],
+    "08-06": [true, true, false],
+    "08-07": [true, true, false],
+    "08-08": [true, true, true],
+    "08-09": [true, false, false],
+    "08-10": [true, false, false],
+    "08-11": [true, false, false],
+    "08-12": [true, false, false],
+    "08-13": [true, false, false],
+    "08-14": [true, false, false],
+    "08-15": [true, false, false]
   };
 
   const MONTHS = ["Január","Február","Március","Április","Május","Június","Július","Augusztus","Szeptember","Október","November","December"];
@@ -351,14 +395,16 @@
       o.value=i;o.textContent=MONTHS[i-1];
       sel.appendChild(o);
     }
-    sel.value=1;
+    // Automatikusan az aktuális hónapra ugrik (vagy májusra, ha már 2026 van)
+    const currentMonth = new Date().getMonth() + 1;
+    sel.value = currentMonth;
   }
 
   function generateCalendar(){
-    const m = +month.value;
+    const m = +document.getElementById("month").value;
     const body = document.getElementById("calendar-body");
     body.innerHTML="";
-    const days = new Date(YEAR,m,0).getDate();
+    const days = new Date(YEAR, m, 0).getDate();
 
     for(let d=1;d<=days;d++){
       const key=`${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
@@ -373,19 +419,27 @@
 
       for(let i=0;i<3;i++){
         const td=document.createElement("td");
-        if(reservations[key]&&reservations[key][i])td.className="booked";
+        if(reservations[key] && reservations[key][i]) {
+            td.className="booked";
+            td.textContent = "Foglalt";
+        }
         tr.appendChild(td);
       }
       body.appendChild(tr);
     }
   }
 
-  function openModal(){overlay.style.display="block";modal.style.display="block";}
-  function closeModal(){overlay.style.display="none";modal.style.display="none";}
+  function openModal(){
+    document.getElementById("overlay").style.display="block";
+    document.getElementById("modal").style.display="block";
+  }
+  function closeModal(){
+    document.getElementById("overlay").style.display="none";
+    document.getElementById("modal").style.display="none";
+  }
 
   populateMonths();
   generateCalendar();
 </script>
 </body>
 </html>
-``
